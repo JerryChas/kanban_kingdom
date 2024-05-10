@@ -11,7 +11,10 @@ const loadUsersFromLocalStorage = () => {
 	return storedUsers;
 };
 
-const initialState = loadUsersFromLocalStorage();
+const initialState = {
+	users: loadUsersFromLocalStorage(),
+	selectedUser: null, // Initialize selectedUser as null
+};
 
 export const userSlice = createSlice({
 	name: 'users',
@@ -53,8 +56,9 @@ export const userSlice = createSlice({
 				localStorage.setItem('users', JSON.stringify(state));
 			}
 		},
-		setSelectedUser: (state, action) => {},
-		//Få boolean att bli true och mappa mot id.
+		setSelectedUser: (state, action) => {
+			state.selectedUser = action.payload;
+		},
 	},
 });
 
