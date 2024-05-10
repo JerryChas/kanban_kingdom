@@ -17,6 +17,7 @@ Vidareutvecklat av team **Norra Norrland/Sundsvall**
 * Vi har gjort en kunglig design 👑.
 * Vi har ordnat upp layouten i tasks, bland annat lagt till färkodning på urgent/done tasks och avatarer.
 * Vi har gjort en del bugfixes, som exempelvis modalens storlek och position.
+* Man kan också ändra namn på stories.
 
 ## Reflektion av arbetet:
 Vi delade upp oss i 2 grupper: Ena gruppen tog design/CSS och andra gruppen tog funktioner/logik.   
