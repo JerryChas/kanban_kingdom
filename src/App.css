@@ -18,16 +18,14 @@
   min-height: 100vh;
 }
 
+
 /* Container som håller allt innehåll under headern*/
 
 .container {
   display: flex;
   width: 100%;
   /* Hela höjden minus headerns höjd*/
-  max-height: calc(100vh - 50px);
   min-height: calc(100vh - 50px);
-  /* background-image: url("./assets/images/city_bg.png"); */
-  /* background-size: cover; */
 }
 
 .bgPic {
@@ -41,10 +39,11 @@
   padding: 0;
   width: 100%;
   overflow-x: scroll;
-  height: calc(100vh - 50px);
+  height: 100vh;
   background-color: transparent;
   padding-top: 54px;
   color: #e79664
+
 }
 
 /* Container som håller menyn till vänster */
@@ -56,7 +55,7 @@
   backdrop-filter: blur(3px);
   border-top: 1px solid #414141;
   border-radius: 0;
-  max-height: 100vh;
+  /* max-height: 100vh; */
   transition: all 0.5s;
 }
 
@@ -221,10 +220,10 @@ Syns bara när man hoverar över list items i menyn. */
 }
 
 body {
-  overflow: hidden;
+  overflow: auto;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1500px) {
   :root {
     font-size: 1.3rem;
   }

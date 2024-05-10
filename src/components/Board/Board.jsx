@@ -96,7 +96,6 @@ const Board = ({ handleOpenModal, toggleCollapse, asideIsCollapsed }) => {
 
   return (
     <main className={css.board}>
-      {/* <div className={css.board_header}> */}
       <div
         className={`${css.board_header} ${
           asideIsCollapsed ? 'full_width' : ''
@@ -109,6 +108,10 @@ const Board = ({ handleOpenModal, toggleCollapse, asideIsCollapsed }) => {
           >
             {asideIsCollapsed ? <Crown /> : <Crown2 />}
           </button>
+        </div>
+      </div>
+      <div id="boardJox" style={{display: "flex", flexFlow: "row nowrap", alignItems: "center", justifyContent: "space-between", marginTop: "1rem", backgroundColor: "rgba(0, 0, 0, 0.5)", padding: ".5rem", borderRadius: "20px", width: "90%", marginLeft: "2rem", alignSelf: "center"}}>
+          <div style={{display: "flex", flexFlow: "row nowrap", alignItems: "center"}}>
           {isEditingBoardName ? ( 
             <input
               type="text"
@@ -119,26 +122,29 @@ const Board = ({ handleOpenModal, toggleCollapse, asideIsCollapsed }) => {
               ref={focusBoardNameEdit}
             />
           ) : (
-            <h2 onClick={handleToggleBoardNameEdit}>{board.title}</h2>
+            <h2 onClick={handleToggleBoardNameEdit} style={{margin: ".5rem", fontSize: "1.5rem"}}>{board.title}</h2>
           )}
-        </div>
-        <form onSubmit={handleAddColumn}>
+          
+          <form onSubmit={handleAddColumn}>
           <input
             type="text"
+            style={{backgroundColor: "rgba(255, 255, 255, 0.2)"}}
             id="columnTitle"
             placeholder="Add a column.."
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(e) => setInput(e.target.value)
+            }
           />
           <button type="submit" disabled={!input.length}>
             {" "}
             +{" "}
           </button>
         </form>
+        </div>
         <button
           className="listBtn"
+          style={{margin: "0rem 1rem"}}
           onClick={handleListviewClick}
-          // style={{ color: "blue", marginLeft: "2rem" }}
         >
           {!isListview ? (
             <FaTrello style={{ color: "red" }} />
@@ -147,7 +153,6 @@ const Board = ({ handleOpenModal, toggleCollapse, asideIsCollapsed }) => {
           )}
         </button>
       </div>
-
       {!isListview ? (
         <div className={css.column_container}>
           {board.columns.map((column) => (

@@ -30,14 +30,9 @@
   .listBtn {
     font-size: 2rem;
     background-color: transparent;
-    color: rgb(55, 198, 255);
     border: none;
   }
-  
-  .listBtn svg {
-    color: rgb(55, 198, 255);
-  }
-  
+
   
   .change-view {
     font-size: 1rem;

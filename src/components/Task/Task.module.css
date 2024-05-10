@@ -1,18 +1,15 @@
 .task {
-  background-color: #212121a0;
+  background-color: rgba(128, 128, 128, 0.187);
   width: 100%;
   border-radius: 5px;
-  padding: 5px 1px;
-  margin: 3px 0 0 0;
-}
-
-.task:first-child {
-  margin: 8px 0 0 0;
+  padding: 8px 1px;
+  margin-bottom: 10px;
 }
 
 h5 {
   font-size: 0.7rem;
-  font-weight: 200;
+  font-weight: 300;
   margin-left: 3px;
+  margin-bottom: 5px;
 }
 

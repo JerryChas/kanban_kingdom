@@ -8,12 +8,10 @@
   transition: border 0.3s;
   border-radius: 5px;
   max-width: 96%;
-  margin: 5px 5px;
+  margin: .5rem 0rem;
   width: 100%;
   padding: 0.5rem 4px;
-  margin: 0;
-  margin-top: 4px;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .delete_button {
@@ -24,17 +22,18 @@
   opacity: .4;
   cursor: pointer;
   transition: 300ms;
+  margin: 5px;
 }
 
 .story:hover {
   border: 1px solid #afafaf96;
 
   .delete_button {
-    transform: scale(.6);
+    transform: scale(1.2);
 
     &:hover {
       opacity: 1;
-      transform: scale(1);
+      transform: scale(1.5);
       color: red !important
     }
   }
@@ -47,11 +46,14 @@
 .task_div {
   display: flex;
   flex-wrap: wrap;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 h4 {
   font-size: 0.8rem;
-  font-weight: 300;
+  font-weight: 400;
+  text-align: center;
 }
 
 .story>form {
