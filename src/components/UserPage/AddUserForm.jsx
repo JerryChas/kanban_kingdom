@@ -32,7 +32,7 @@ const AddUserForm = () => {
       />
       <br />
       <input
-        type="text"
+        type="url"
         id="photo"
         className={css.input}
         placeholder="Photo URL (Optional)"

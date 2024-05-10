@@ -7,8 +7,8 @@ until the user refreshes the page. */
 
 // Function to retrieve users from localStorage
 const loadUsersFromLocalStorage = () => {
-	const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-	return storedUsers;
+  const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+  return storedUsers;
 };
 
 const initialState = {
@@ -42,12 +42,24 @@ export const userSlice = createSlice({
 			localStorage.setItem('users', JSON.stringify(state));
 			console.log(user);
 		},
-		removeUser: (state, action) => {
-			const userId = action.payload;
-			const updatedUsers = state.filter((user) => user.id !== userId);
-			state = updatedUsers;
-			localStorage.setItem('users', JSON.stringify(state));
+		    removeUser: (state, action) => {
+      //* FUN FACTS.. Denna utkommenterade kod fungerar lika bra =)
+
+      // const userToRemove = action.payload;
+      // console.log('DELETE USER: ', userToRemove);
+      // const index = state.findIndex((user) => user.id === userToRemove.id);
+      // if (index !== -1) {
+      //   state.splice(index, 1);
+      //   localStorage.setItem('users', JSON.stringify(state));
+      // }
+
+      const userToRemove = action.payload;
+      console.log('DELETE USER: ', userToRemove);
+      const updatedUsers = state.filter((user) => user.id !== userToRemove.id);
+      localStorage.setItem('users', JSON.stringify(state));
+      return updatedUsers;
 		},
+      
 		updateUser: (state, action) => {
 			const updatedUser = action.payload;
 			const index = state.findIndex((user) => user.id === updatedUser.id);
@@ -63,5 +75,5 @@ export const userSlice = createSlice({
 });
 
 export const { setSelectedUser, addUser, removeUser, updateUser } =
-	userSlice.actions;
+  userSlice.actions;
 export default userSlice.reducer;
