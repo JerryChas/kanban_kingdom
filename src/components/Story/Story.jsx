@@ -1,7 +1,7 @@
 import Task from '../Task/Task';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTask } from '../../slices/BoardSlice';
+import { addTask, editStoryName } from '../../slices/BoardSlice';
 import { useDrag } from 'react-dnd';
 import css from './Story.module.css';
 import DeleteButton from '../DeleteButton';
@@ -16,6 +16,8 @@ const Story = ({
   onDeleteStory,
 }) => {
   const [input, setInput] = useState('');
+  const [isEditTitle, setIsEditTitle] = useState(false);
+  const [editTitle, setEditTitle] = useState(story.title);
   const dispatch = useDispatch();
 
   let columnId = null;
@@ -58,9 +60,38 @@ const Story = ({
     setInput('');
   };
 
+  // INGET TOMT STORYNAMN
+  useEffect(() => {
+    if (editTitle === '') {
+      const randomNumber = Math.floor(Math.random() * 999);
+      setEditTitle(`Story ${randomNumber}`);
+    }
+  }, [editTitle]);
+
+  const handleEditStoryTitle = () => {
+    dispatch(
+      editStoryName({
+        columnId: column.id,
+        storyName: editTitle,
+        storyId: story.id,
+      })
+    );
+    setIsEditTitle(false);
+  };
+
   return (
     <article className={css.story} ref={drag}>
-      <h4>{story.title}</h4>
+      {isEditTitle ? (
+        <input
+          type='text'
+          value={editTitle}
+          onChange={(e) => setEditTitle(e.target.value)}
+          onBlur={handleEditStoryTitle}
+        />
+      ) : (
+        <h4 onClick={() => setIsEditTitle(true)}>{story.title}</h4>
+      )}
+
       <div className={css.delete_button}>
         <DeleteButton onClick={onDeleteStory} />
       </div>
